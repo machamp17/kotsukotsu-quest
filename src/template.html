@@ -1,0 +1,96 @@
+<title>こつこつクリニック クエスト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap">
+<style>/*__STYLE__*/</style>
+<div id="app">
+  <div id="frame">
+
+    <section id="screen-title" class="screen" aria-label="タイトル">
+      <div id="title-sky-box" class="title-sky">
+        <canvas id="title-sky" class="pixel"></canvas>
+        <h1 class="logo"><span class="logo-top">こつこつクリニック</span><span class="logo-main">クエスト</span></h1>
+        <button type="button" class="sound-chip" data-sound-toggle aria-pressed="false">音：切</button>
+      </div>
+      <div id="title-town-box" class="title-town">
+        <canvas id="title-town" class="pixel"></canvas>
+        <div class="title-bottom">
+          <div id="title-menu" class="window title-menu">
+            <button type="button" class="choice" data-act="new">はじめから</button>
+            <button type="button" class="choice" data-act="continue">つづきから</button>
+          </div>
+          <p class="title-brand">生きる事を嬉しく。こつこつクリニック</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-setup" class="screen" aria-label="はじめる準備" hidden>
+      <div class="window setup">
+        <h2 class="setup-heading">あなたのことを教えてください</h2>
+        <label class="setup-label" for="name-input">名前（1〜8文字）</label>
+        <div class="name-row">
+          <input id="name-input" type="text" maxlength="8" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="done" value="コツコツ">
+          <span class="name-suffix">先生</span>
+        </div>
+        <p id="name-error" class="setup-error" role="alert"></p>
+        <p class="setup-label">あなたの姿を選んでください</p>
+        <div class="avatar-row">
+          <button type="button" class="avatar-card" data-avatar="doctorA" aria-pressed="true">
+            <canvas class="avatar-walk pixel" width="16" height="24"></canvas>
+            <canvas class="avatar-face pixel" width="32" height="32"></canvas>
+            <span>男性の医師</span>
+          </button>
+          <button type="button" class="avatar-card" data-avatar="doctorB" aria-pressed="false">
+            <canvas class="avatar-walk pixel" width="16" height="24"></canvas>
+            <canvas class="avatar-face pixel" width="32" height="32"></canvas>
+            <span>女性の医師</span>
+          </button>
+        </div>
+        <div class="setup-actions">
+          <button type="button" class="choice" id="setup-back">もどる</button>
+          <button type="button" class="choice is-active" id="setup-start">この姿で始める</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="screen-game" class="screen" aria-label="ゲーム" hidden>
+      <header id="hud">
+        <div class="hud-top">
+          <p id="hud-chapter" class="hud-chapter"></p>
+          <div id="hud-items" class="hud-items" aria-label="持っている機器"></div>
+          <button type="button" class="hud-btn" data-sound-toggle aria-pressed="false">音：切</button>
+          <button type="button" class="hud-btn" id="btn-menu"><span class="menu-lines" aria-hidden="true"></span>メニュー</button>
+        </div>
+        <p class="hud-objective-row"><span class="hud-tag">目的</span><span id="hud-objective" class="hud-objective"></span></p>
+      </header>
+      <div id="viewport">
+        <canvas id="world" class="pixel"></canvas>
+        <div id="talk">
+          <div id="choices" class="window choices" hidden></div>
+          <div id="dialogue" class="window dlg" hidden aria-live="polite">
+            <p class="dlg-name"></p>
+            <div class="dlg-body">
+              <canvas class="dlg-face pixel" width="32" height="32"></canvas>
+              <p class="dlg-text"></p>
+            </div>
+            <span class="dlg-next" aria-hidden="true"></span>
+          </div>
+        </div>
+        <div id="overlay"></div>
+      </div>
+      <div id="controls">
+        <div id="dpad" role="group" aria-label="十字キー">
+          <span class="dpad-arrow up"></span><span class="dpad-arrow down"></span>
+          <span class="dpad-arrow left"></span><span class="dpad-arrow right"></span>
+        </div>
+        <button type="button" id="btn-a" aria-label="Aボタン（話す・調べる・決定）">A</button>
+      </div>
+    </section>
+
+    <div id="modal"></div>
+    <div id="fader"></div>
+    <div id="flash"></div>
+    <p id="boot-error" hidden>読み込みに失敗しました。ページを再読み込みしてください。</p>
+  </div>
+</div>
+<script>/*__SCRIPT__*/</script>
