@@ -1,7 +1,7 @@
 # こつこつクリニック クエスト
 
 > **最新版について（2026年11月）**
-> 公開中の最新版は `docs/index.html` です（GitHub Pages でこのファイルをそのまま配信）。
+> 公開中の最新版は `docs/index.html` です（GitHub Pages でこのファイルをそのまま配信。公開URL：https://quest.kotsukotsu-clinic.com/ ）。
 > 2026年10〜11月の調整（バトルの4段階メーター、先生キャラ10人、理念を入れたエンディングロール、会話アイコンの描き直し、表記統一など）は `docs/index.html` に直接加えています。
 > `src/` の TypeScript は2026年9月時点のままなので、`npm run build` で作り直すと最新の変更が消えます。手直しは `docs/index.html` に対して行ってください。
 
